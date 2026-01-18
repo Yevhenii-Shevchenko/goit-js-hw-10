@@ -4,12 +4,12 @@ import 'flatpickr/dist/flatpickr.min.css';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-const inputEl = document.querySelector('#datetime-picker');
-const startBtnEl = document.querySelector('[data-start]');
-const daysEl = document.querySelector('[data-days]');
-const hoursEl = document.querySelector('[data-hours]');
-const minutesEl = document.querySelector('[data-minutes]');
-const secondsEl = document.querySelector('[data-seconds]');
+const inputT = document.querySelector('#datetime-picker');
+const startBtnT = document.querySelector('[data-start]');
+const daysT = document.querySelector('[data-days]');
+const hoursT = document.querySelector('[data-hours]');
+const minutesT = document.querySelector('[data-minutes]');
+const secondsT = document.querySelector('[data-seconds]');
 
 let userSelectedDate;
 let timerId;
@@ -37,13 +37,13 @@ const options = {
     }
 
     userSelectedDate = selectedDates[0];
-    startBtnEl.disabled = false;
-    startBtnEl.classList.add('start-btn-abled');
+    startBtnT.disabled = false;
+    startBtnT.classList.add('start-btn-abled');
    
   },
 };
 
-flatpickr(inputEl, options);
+flatpickr(inputT, options);
 
 function convertMs(ms) {
   // Number of milliseconds per unit of time
@@ -73,28 +73,28 @@ function updateTimer() {
 
   if (timeMs <= 0) {
     clearInterval(timerId);
-    inputEl.disabled = false;
-    startBtnEl.disabled = false;
-    daysEl.textContent = '00';
-    hoursEl.textContent = '00';
-    minutesEl.textContent = '00';
-    secondsEl.textContent = '00';
+    inputT.disabled = false;
+    startBtnT.disabled = false;
+    daysT.textContent = '00';
+    hoursT.textContent = '00';
+    minutesT.textContent = '00';
+    secondsT.textContent = '00';
     return;
   }
 
   const time = convertMs(timeMs);
-  daysEl.textContent = addLeadingZero(time.days);
-  hoursEl.textContent = addLeadingZero(time.hours);
-  minutesEl.textContent = addLeadingZero(time.minutes);
-  secondsEl.textContent = addLeadingZero(time.seconds);
+  daysT.textContent = addLeadingZero(time.days);
+  hoursT.textContent = addLeadingZero(time.hours);
+  minutesT.textContent = addLeadingZero(time.minutes);
+  secondsT.textContent = addLeadingZero(time.seconds);
 }
 
-startBtnEl.addEventListener('click', () => {
+startBtnT.addEventListener('click', () => {
   if (!userSelectedDate) return;
 
-  startBtnEl.disabled = true;
-  inputEl.disabled = true;
-  startBtnEl.classList.remove('start-btn-abled');
+  startBtnT.disabled = true;
+  inputT.disabled = true;
+  startBtnT.classList.remove('start-btn-abled');
 
   updateTimer();
   timerId = setInterval(updateTimer, 1000);
