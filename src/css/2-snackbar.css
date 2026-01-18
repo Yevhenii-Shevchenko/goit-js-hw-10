@@ -5,6 +5,12 @@
   color: #2e2f42;
 }
 
+.form > label {
+  display: block;
+  text-align: start;
+  letter-spacing: 0.05em;
+}
+
 .delay-input {
   box-sizing: border-box;
   width: 100%;
@@ -27,7 +33,7 @@ fieldset {
   margin-bottom: 34px;
   margin-left: 0;
   margin-right: 0;
-  text-align: center;
+  text-align: left;
   border: 1px solid #808080;
   border-radius: 8px;
 
